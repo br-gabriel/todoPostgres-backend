@@ -60,11 +60,15 @@ $ npm install
 ```
 
 ### Variáveis de ambiente
-<p>Para a aplicação funcionar é preciso criar o arquivo .env e adicionar a variável ‘SECRET’ com o valor de uma string aleatória.</p>
+Para a aplicação funcionar é preciso criar o arquivo `.env` e adicionar as seguintes variáveis, com valores do mesmo tipo descrito no exemplo abaixo.
+
 <strong>Exemplo:</strong>
 
 ```
-SECRET="962012d09b8170d912f0669f6d7d9d07"
+DATABASE_USER="nomeDoUsuario"             //string
+DATABASE_PASSWORD="senhaDoBancoDeDados"   //string
+DATABASE_NAME="nomeDoBancoDeDados"        //string
+SECRET="962012d09b8170d912f0669f6d7d9d07" //string
 ```
 
 ### Docker
