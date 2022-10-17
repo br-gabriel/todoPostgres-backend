@@ -68,7 +68,25 @@ Para a aplicação funcionar é preciso criar o arquivo `.env` e adicionar as se
 DATABASE_USER="nomeDoUsuario"             //string
 DATABASE_PASSWORD="senhaDoBancoDeDados"   //string
 DATABASE_NAME="nomeDoBancoDeDados"        //string
+DATABASE_URL=`postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@localhost:5432/${DATABASE_NAME}` //string
+
+ORIGIN_URL="http://localhost:3000" //string - rota onde o frontend irá rodar
+
 SECRET="962012d09b8170d912f0669f6d7d9d07" //string
+```
+
+### Token JWT
+O token está definido para expirar após 7 dias do login do usuário, caso queira testar a autenticação, em um tempo diferente, acesse o arquivo: `src/routes/user.routes.js`
+
+```
+// Rota - /user/signin
+const token = await jwt.sign(
+            {
+                id: userExists.id,
+            },
+            secret,
+            {expiresIn: '7d'} //Altere aqui para o valor desejado [1m, 1h, 1d]
+        );
 ```
 
 ### Docker
