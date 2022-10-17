@@ -15,4 +15,4 @@ app.use(cookieParser());
 app.use(todosRoutes);
 app.use(userRoutes);
 
-app.listen(3232, () => console.log("Servidor rodando na porta 3232"));
+app.listen(process.env.PORT || 3232, () => console.log(`Servidor rodando na porta ${process.env.PORT}`));
