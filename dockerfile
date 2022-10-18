@@ -8,6 +8,4 @@ COPY package*.json ./
 
 COPY . .
 
-EXPOSE 3232
-
 CMD ["npm", "start"]
