@@ -8,4 +8,4 @@ COPY package*.json ./
 
 COPY . .
 
-CMD ["npm", "start"]
+CMD ["node", "src/index.js"]
