@@ -1,7 +1,7 @@
 # To Do Postgres - Back-end
 ## Sobre o projeto
-<p>Esse repositório é o back-end do <a href="https://github.com/br-gabriel/todoPostgres-frontend" target="_blank">todoPostgres-frontend</a>.</p>
-<p>Trata-se de uma API Restful construida com NodeJS + Express, Prisma, Postgres e Docker e é responsável por enviar e receber dados do usuário de forma autenticada via JWT.</p>
+<p>Esse repositório trata-se do back-end do projeto: <a href="https://github.com/br-gabriel/todoPostgres-frontend" target="_blank">todoPostgres-frontend</a>.</p>
+<p>Consiste em uma API Restful construida com NodeJS + Express, Prisma, Postgres e Docker e é responsável por enviar e receber dados do usuário de forma autenticada via JWT.</p>
 
 ## Tecnologias
 
@@ -60,7 +60,7 @@ $ npm install
 ```
 
 ### Variáveis de ambiente
-Para a aplicação funcionar é preciso criar o arquivo `.env` e adicionar as seguintes variáveis, com valores do mesmo tipo descrito no exemplo abaixo.
+Para a aplicação funcionar é preciso criar o arquivo `.env`, na raiz do projeto, e adicionar as seguintes variáveis, com valores do mesmo tipo descrito no exemplo abaixo.
 
 <strong>Exemplo:</strong>
 
@@ -68,11 +68,19 @@ Para a aplicação funcionar é preciso criar o arquivo `.env` e adicionar as se
 DATABASE_USER="nomeDoUsuario"             //string
 DATABASE_PASSWORD="senhaDoBancoDeDados"   //string
 DATABASE_NAME="nomeDoBancoDeDados"        //string
-DATABASE_URL=`postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@localhost:5432/${DATABASE_NAME}` //string
+DATABASE_URL=`postgresql://nomeDoUsuario:senhaDoBancoDeDados@localhost:5432/nomeDoBancoDeDados` //string
 
 ORIGIN_URL="http://localhost:3000" //string - rota onde o frontend irá rodar
 
 SECRET="962012d09b8170d912f0669f6d7d9d07" //string
+```
+* Os valores dentro do `DATABASE_URL` devem ser os mesmos contidos nas variáveis acima, cada um em seu respectivo local descrito.
+* O valor da variável `SECRET` consiste em uma string com valor aleatório.
+
+### Prisma
+Após seguir os passos acima, rodamos o seguinte comando para configurar o banco de dados conforme descrito no schema do prisma.
+```
+$ npx prisma migrate dev
 ```
 
 ### Token JWT
@@ -80,21 +88,22 @@ O token está definido para expirar após 7 dias do login do usuário, caso quei
 
 ```
 // Rota - /user/signin
+
 const token = await jwt.sign(
-            {
-                id: userExists.id,
-            },
-            secret,
-            {expiresIn: '7d'} //Altere aqui para o valor desejado [1m, 1h, 1d]
-        );
+     {
+       id: userExists.id,
+     },
+     secret,
+     {expiresIn: '7d'} //Altere aqui para o valor desejado [1m, 1h, 1d]
+);
 ```
 
 ### Docker
-1. Para a aplicação funcionar será necessário instalar o docker e o docker-compose, link do download
+1. Para a aplicação funcionar será necessário instalar o docker e o docker-compose, <a href="https://docs.docker.com/compose/install/">link do download</a>
 2. Abrir o docker
 3. Usar o comando no terminal:
 ```
-$ docker-compose up -d
+$ docker-compose up --build
 ```
 
 ### Rodando o projeto
