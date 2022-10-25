@@ -10,7 +10,7 @@
   * Cors
   * Bcrypt
   * Cookie-parser
-  * JsonWebToken
+  * JsonWebToken - JWT Token
 * Prisma
 * Postgres
 * Docker
