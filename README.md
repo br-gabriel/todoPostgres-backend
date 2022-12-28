@@ -73,7 +73,7 @@ DATABASE_URL="postgresql://nomeDoUsuario:senhaDoBancoDeDados@localhost:5432/nome
 ORIGIN_URL="http://localhost:3000" //string - rota onde o frontend irá rodar
 
 SECRET="962012d09b8170d912f0669f6d7d9d07" //string
-PORT="3232"
+PORT="3232" //string com 4 números
 ```
 * Os valores dentro do `DATABASE_URL` devem ser os mesmos contidos nas variáveis acima, cada um em seu respectivo local descrito.
 * O valor da variável `SECRET` consiste em uma string com valor aleatório.
