@@ -42,21 +42,23 @@
 <strong>Clonar o repositório</strong>
 
 ```
-$ git clone https://github.com/br-gabriel/todoPostgres-backend
+git clone https://github.com/br-gabriel/todoPostgres-backend
+```
 
-$ cd todoPostgres-backend
+```
+cd todoPostgres-backend
 ```
 
 <strong>Instalação das dependências</strong>
 
 ```
-$ yarn
+yarn
 ```
 
 <p>ou</p>
 
 ```
-$ npm install
+npm install
 ```
 
 ### Variáveis de ambiente
@@ -81,7 +83,7 @@ PORT="3232" //string com 4 números
 ### Prisma
 Após seguir os passos acima, rodamos o seguinte comando para configurar o banco de dados conforme descrito no schema do prisma.
 ```
-$ npx prisma migrate dev
+npx prisma migrate dev
 ```
 
 ### Token JWT
@@ -104,19 +106,19 @@ const token = await jwt.sign(
 2. Abrir o docker
 3. Usar o comando no terminal:
 ```
-$ docker-compose up --build
+docker-compose up --build
 ```
 
 ### Rodando o projeto
 <p>Após ter todas as dependências instaladas, as variáveis de ambiente definidas e com o docker rodando, você pode rodar a aplicação com o seguinte comando:</p>
 
 ```
-$ yarn dev
+yarn dev
 ```
 <p>ou</p>
 
 ```
-$ npm run dev
+npm run dev
 ```
 
 ## Rotas
