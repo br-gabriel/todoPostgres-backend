@@ -7,7 +7,7 @@ const userRoutes = require("./routes/user.routes");
 const app = express();
 
 app.use(cors({
-    origin: "https://todo-postgres-frontend.vercel.app/",
+    origin: "https://todo-postgres-frontend.vercel.app",
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
     credentials: true
