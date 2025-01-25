@@ -6,6 +6,8 @@ const userRoutes = require("./routes/user.routes");
 
 const app = express();
 
+console.log("Allowed origin:", process.env.URL);
+
 app.use(cors({
     origin: process.env.URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
