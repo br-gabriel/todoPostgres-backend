@@ -7,7 +7,7 @@ const userRoutes = require("./routes/user.routes");
 const app = express();
 
 app.use(cors({
-    origin: process.env.URL,
+    origin: "https://postgres-todo-frontend.netlify.app/signin",
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
     credentials: true
