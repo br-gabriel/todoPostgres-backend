@@ -20,10 +20,10 @@ const app = express();
 // });
 
 app.use(cors({
-    origin: process.env.URL,
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
-    credentials: true,
+    // credentials: true,
 }));
 
 app.use(express.json());
