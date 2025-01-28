@@ -20,7 +20,7 @@ const app = express();
 // });
 
 app.use(cors({
-    origin: '*',
+    origin: process.env.URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
     credentials: true,
