@@ -26,6 +26,13 @@ app.use(cors({
     credentials: true,
 }));
 
+app.use((req, res, next) => {
+    console.log('Request Origin:', req.headers.origin);
+    console.log('Request Method:', req.method);
+    console.log('Request Headers:', req.headers);
+    next();
+});
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(todosRoutes);
