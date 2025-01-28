@@ -7,8 +7,9 @@ const prisma = new PrismaClient();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const emailRegex = require("../utils/regex");
+const cors = require("cors");
 
-userRoutes.post("/user/signup", async (req, res) => {
+userRoutes.post("/user/signup", cors(), async (req, res) => {
     const { email, emailConfirm, password, passwordConfirm } = req.body;
 
     const checkPasswordLength = password.length;
@@ -45,7 +46,7 @@ userRoutes.post("/user/signup", async (req, res) => {
     return res.status(201).json(user);
 });
 
-userRoutes.post("/user/signin", async (req, res) => {
+userRoutes.post("/user/signin", cors(), async (req, res) => {
     const { email, password } = req.body;
 
     if(!email) {
@@ -87,7 +88,7 @@ userRoutes.post("/user/signin", async (req, res) => {
     }
 });
 
-userRoutes.get("/user/signout", async (req, res) => {
+userRoutes.get("/user/signout", cors(), async (req, res) => {
     return res.clearCookie('access_token').status(200).json({ message: "logout" });
 });
 
