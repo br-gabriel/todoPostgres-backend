@@ -6,32 +6,12 @@ const userRoutes = require("./routes/user.routes");
 
 const app = express();
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://todo-postgres-frontend.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Cookie');
-    res.header('Access-Control-Allow-Credentials', true);
-    
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
-    }
-    
-    next();
-});
-
 app.use(cors({
     origin: process.env.URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
     credentials: true,
 }));
-
-app.use((req, res, next) => {
-    console.log('Request Origin:', req.headers.origin);
-    console.log('Request Method:', req.method);
-    console.log('Request Headers:', req.headers);
-    next();
-});
 
 app.use(express.json());
 app.use(cookieParser());
