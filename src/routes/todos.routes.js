@@ -6,9 +6,6 @@ const prisma = new PrismaClient();
 
 const authorization = require("../middlewares/authorization");
 const jwt = require("jsonwebtoken");
-const setCorsHeaders = require("../middlewares/corsMiddleware");
-
-todosRoutes.use(setCorsHeaders);
 
 todosRoutes.post("/user/todos", authorization, async (req, res) => {
     const { name } = req.body;

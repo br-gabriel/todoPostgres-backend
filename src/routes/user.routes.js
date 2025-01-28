@@ -7,9 +7,6 @@ const prisma = new PrismaClient();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const emailRegex = require("../utils/regex");
-const setCorsHeaders = require("../middlewares/corsMiddleware");
-
-userRoutes.use(setCorsHeaders);
 
 userRoutes.post("/user/signup", async (req, res) => {
     const { email, emailConfirm, password, passwordConfirm } = req.body;
