@@ -2,6 +2,7 @@
 ## Sobre o projeto
 <p>Esse repositório trata-se do back-end do projeto: <a href="https://github.com/br-gabriel/todoPostgres-frontend" target="_blank">todoPostgres-frontend</a>.</p>
 <p>Consiste em uma API Restful construida com NodeJS + Express, Prisma, Postgres e Docker e é responsável por enviar e receber dados do usuário de forma autenticada via JWT.</p>
+<p>Deploy do site: <a href="https://todo-postgres-frontend.vercel.app">Link</a></p>
 
 ## Tecnologias
 
@@ -80,12 +81,6 @@ PORT="3232" //string com 4 números
 * Os valores dentro do `DATABASE_URL` devem ser os mesmos contidos nas variáveis acima, cada um em seu respectivo local descrito.
 * O valor da variável `SECRET` consiste em uma string com valor aleatório.
 
-### Prisma
-Após seguir os passos acima, rodamos o seguinte comando para configurar o banco de dados conforme descrito no schema do prisma.
-```
-npx prisma migrate dev
-```
-
 ### Token JWT
 O token está definido para expirar após 7 dias do login do usuário, caso queira testar a autenticação, em um tempo diferente, acesse o arquivo: `src/routes/user.routes.js`
 
@@ -107,6 +102,12 @@ const token = await jwt.sign(
 3. Usar o comando no terminal:
 ```
 docker-compose up --build
+```
+
+### Prisma
+Após seguir os passos acima, rodamos o seguinte comando para configurar o banco de dados conforme descrito no schema do prisma.
+```
+npx prisma migrate dev
 ```
 
 ### Rodando o projeto
