@@ -3,21 +3,19 @@ const jwt = require("jsonwebtoken");
 async function authorization(req, res, next) {
   try {
     const token = req.cookies.access_token;
-
+    
     if (!token) {
-        return res.status(401).json({ 
-            error: "Token não fornecido",
-            message: "É necessário estar autenticado para acessar este recurso" 
-        });
+      return res.status(401).json({ error: "Acesso negado: Token não fornecido" });
     }
 
-    const secret = process.env.SECRET;
+    const verified = jwt.verify(token, process.env.SECRET);
+    if (!verified) {
+      return res.status(401).json({ error: "Acesso negado: Falha na validação do token" });
+    }
 
-    const decodedToken = await jwt.verify(token, secret);
-    req.user = decodedToken;
-
-    return next();
-  } catch {
+    req.user = verified;
+    next();
+  } catch (error) {
     console.error("Erro de autorização:", error);
 
     if (error.name === 'TokenExpiredError') {
