@@ -86,6 +86,9 @@ userRoutes.post("/user/signin", async (req, res) => {
     return res
       .cookie("access_token", token, {
         httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        path: "/",
       })
       .status(200)
       .json({ message: "Autenticação realizada com sucesso" });
